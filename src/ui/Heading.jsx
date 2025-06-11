@@ -21,6 +21,14 @@ const Heading = styled.h1`
       font-size: 2rem;
       font-weight: 500;
     `}
+
+    ${(props) =>
+    props.as === "h4" &&
+    css`
+      font-size: 3rem;
+      font-weight: 500;
+      text-align: center;
+    `}
 `;
 // we can add expressions as font-size: {10 > 5 ? 20px : 30px} as it is a template literal
 
