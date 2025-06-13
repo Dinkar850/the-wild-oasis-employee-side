@@ -6,6 +6,7 @@ export function useUser() {
     queryKey: ["user"],
     queryFn: getCurrentUser,
   });
+  const isAuthenticated = Boolean(user && user.role === "authenticated");
 
-  return { isLoading, user, isAuthenticated: user?.role === "authenticated" };
+  return { isLoading, user, isAuthenticated };
 }
