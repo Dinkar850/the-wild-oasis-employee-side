@@ -5,10 +5,13 @@ import { useLocalStorageState } from "../hooks/useLocalStorageState";
 const DarkModeContext = createContext();
 
 export function DarkModeProvider({ children }) {
-  const [isDarkMode, setIsDarkMode] = useLocalStorageState(false, "isDarkMode");
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    "isDarkMode"
+  );
 
   useEffect(() => {
-    if (isDarkMode) {
+    if (!isDarkMode) {
       document.documentElement.classList.add("light-mode");
       document.documentElement.classList.remove("dark-mode");
     } else {
@@ -28,6 +31,7 @@ export function DarkModeProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
   if (!context) throw new Error("Dark mode used outside the provider");
