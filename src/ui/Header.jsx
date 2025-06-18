@@ -20,7 +20,6 @@ function Header() {
       <HeaderMenu />
     </StyledHeader>
   );
-  //ignore
 }
 
 export default Header;
