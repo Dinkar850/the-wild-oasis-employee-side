@@ -42,7 +42,6 @@ const NoActivity = styled.p`
 
 function TodayActivity() {
   const { activities, isLoading, error } = useTodayActivity();
-  console.log(activities);
   if (error) {
     toast.error("Error fetching todays activities");
     return null;
