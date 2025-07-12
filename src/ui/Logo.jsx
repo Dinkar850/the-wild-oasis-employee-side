@@ -10,12 +10,19 @@ const Img = styled.img`
   width: auto;
 `;
 
+const LogoText = styled.p`
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+`;
+
 function Logo() {
   const { isDarkMode } = useDarkMode();
   const src = isDarkMode ? "/logo-dark.png" : "/logo-light.png";
   return (
     <StyledLogo>
       <Img src={src} alt="Logo" />
+      <LogoText>THE WILLOW PARADISE</LogoText>
     </StyledLogo>
   );
 }
